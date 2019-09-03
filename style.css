@@ -64,7 +64,12 @@ body {
 #try-again {
   cursor: pointer;
 }
-
+#atribution {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  color: white;
+}
 
 h1 {
   margin: 1rem;
