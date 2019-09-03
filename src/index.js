@@ -7,10 +7,12 @@ let audioDoor = document.getElementById('audio-door');
 let audioKiller = document.getElementById('audio-killer');
 
 
-let killerDoor = "./img/blue-door-killer.png"
-let friendDoor = "./img/blue-door-friend2.png"
-let exitDoor = "./img/blue-door-exit.png"
-let closedDoor = "./img/blue-door.png"
+let killerDoor = "./img/white-door-killer.jpg"
+let friendDoor = "./img/white-door-friend.jpg"
+let exitDoor = "./img/white-door-exit.jpg"
+let closedDoor1 = "./img/white-door-bloody-hand2.jpg"
+let closedDoor2 = "./img/white-door-bloody-hand1.jpg"
+let closedDoor3 = "./img/white-door-bloody-hand3.jpg"
 let currentlyPlaying = true;
 
 let numClosedDoors = 3;
@@ -43,7 +45,7 @@ function isFriend(door) {
 }
 
 function isClicked(door) {
-  return door.name === closedDoor ? false : true;
+  return door.name === closedDoor1 || closedDoor2 || closedDoor3 ? false : true;
 }
 
 const randomDoorGenerator = () => {
@@ -95,12 +97,12 @@ tryAgainButton.onclick = () => {
 }
 
 function startRound() {
-  doorImage1.src = closedDoor;
-  doorImage2.src = closedDoor;
-  doorImage3.src = closedDoor;
-  doorImage1.name = closedDoor;
-  doorImage2.name = closedDoor;
-  doorImage3.name = closedDoor;
+  doorImage1.src = closedDoor1;
+  doorImage2.src = closedDoor2;
+  doorImage3.src = closedDoor3;
+  doorImage1.name = closedDoor1;
+  doorImage2.name = closedDoor2;
+  doorImage3.name = closedDoor3;
   numClosedDoors = 3;
   messageButton.innerHTML = 'Good luck...'
   tryAgainButton.style.visibility = 'hidden';
