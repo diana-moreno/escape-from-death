@@ -18,11 +18,11 @@ If you’d like to view my project in your browser:
 
 - Clone the repository in your computer, you can type the following command in your terminal
 ```bash
-git clone https://github.com/diana-moreno/escape-to-death.git
+git clone https://github.com/diana-moreno/escape-from-death.git
 ```
 - Open data-structure's folder.
 - Open index.html
-- Otherside, you can run the project here: https://diana-moreno.github.io/escape-to-death/
+- Otherside, you can run the project here: https://diana-moreno.github.io/escape-from-death/
 
 
 ### **What I learned**
