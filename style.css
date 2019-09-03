@@ -53,6 +53,7 @@ body {
 .floor img {
   width: 100%;
   margin: 0;
+  height: fit-content;
 }
 .wall {
   height: 100%;
