@@ -1,10 +1,10 @@
 ## ESCAPE TO DEATH
 
 <p align="center">
-  <img src="./img/escape-to-death.png" width="500">
+  <img src="./img/escape-from-death.png" width="500">
 </p>
 
-Escape to death is a horror escape game where you and your friend have been kidnapped. The goal is to rescue your friend and scape both together. Be careful with the killer!
+Escape from death is a horror escape game where you and your friend have been kidnapped. The goal is to rescue your friend and scape both together. Be careful with the killer!
 
 ### **Features**
 
