@@ -8,7 +8,7 @@ let audioKiller = document.getElementById('audio-killer');
 
 
 let killerDoor = "./img/blue-door-killer.png"
-let friendDoor = "./img/blue-door-friend.png"
+let friendDoor = "./img/blue-door-friend2.png"
 let exitDoor = "./img/blue-door-exit.png"
 let closedDoor = "./img/blue-door.png"
 let currentlyPlaying = true;
