@@ -98,6 +98,7 @@ function startRound() {
   doorImage3.name = closedDoor;
   numClosedDoors = 3;
   messageButton.innerHTML = 'Good luck...'
+  tryAgainButton.style.visibility = 'hidden';
   currentlyPlaying = true;
   randomDoorGenerator();
 }
@@ -107,6 +108,7 @@ function gameOver(status) {
   } else {
     messageButton.innerHTML = "The killer has found you...Game over."
   }
+  tryAgainButton.style.visibility = 'visible';
    tryAgainButton.innerHTML = "Try again";
   blinkTryAgain()
   currentlyPlaying = false;
@@ -127,6 +129,6 @@ function blinkTryAgain() {
     clearInterval(blink);
     tryAgainButton.style.color = 'white';
     startRound();
-     tryAgainButton.innerHTML = '...';
+    tryAgainButton.style.visibility = 'hidden';
   }
 }
