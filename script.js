@@ -1,12 +1,13 @@
 let doorImage1 = document.getElementById("door1");
 let doorImage2 = document.getElementById("door2");
 let doorImage3 = document.getElementById("door3");
-let startButton = document.getElementById("start");
+let messageButton = document.getElementById("message");
+let tryAgainButton = document.getElementById('try-again')
 
-let botDoorPath = "https://s3.amazonaws.com/codecademy-content/projects/chore-door/images/robot.svg";
-let beachDoorPath = "https://s3.amazonaws.com/codecademy-content/projects/chore-door/images/beach.svg";
-let spaceDoorPath = "https://s3.amazonaws.com/codecademy-content/projects/chore-door/images/space.svg";
-let closedDoorPath = "./img/blue-door.png"
+let killerDoor = "./img/blue-door-killer.png"
+let friendDoor = "./img/blue-door-friend.png"
+let exitDoor = "./img/blue-door-exit.png"
+let closedDoor = "./img/blue-door.png"
 let currentlyPlaying = true;
 
 let numClosedDoors = 3;
@@ -16,79 +17,116 @@ let openDoor3;
 
 const playDoor = (door) => {
   numClosedDoors--;
-  if(numClosedDoors === 0) {
+  if(numClosedDoors === 2 && isExit(door)) {
+    messageButton.innerHTML = "This is the exit but first find your friend."
+  } else if(isFriend(door) && numClosedDoors === 2) {
+    messageButton.innerHTML = "Your friend is alive, hurry up."
+  } else if(numClosedDoors === 1 && !isKilled(door)) {
+    console.log(isFriend(door), isExit(door))
     gameOver("win");
-  } else if(isBot(door)) {
+  } else if(isKilled(door)) {
     gameOver();
   }
 }
 
-function isBot(door) {
-  return door.src === botDoorPath ? true : false;
+function isKilled(door) {
+  return door.name === killerDoor ? true : false;
+}
+function isExit(door) {
+  return door.name === exitDoor ? true : false;
+}
+function isFriend(door) {
+  return door.name === friendDoor ? true : false;
 }
 
 function isClicked(door) {
-  return door.src === closedDoorPath ? false : true;
+  return door.name === closedDoor ? false : true;
 }
 
-const randomChoreDoorGenerator = () => {
-  const choreDoor = Math.floor(Math.random() * numClosedDoors);
-  if(choreDoor === 0) {
-    openDoor1 = botDoorPath;
-    openDoor2 = beachDoorPath;
-    openDoor3 = spaceDoorPath;
-  } else if(choreDoor === 1) {
-    openDoor2 = botDoorPath;
-    openDoor3 = beachDoorPath;
-    openDoor1 = spaceDoorPath;
+const randomDoorGenerator = () => {
+  const currentDoor = Math.floor(Math.random() * numClosedDoors);
+  if(currentDoor === 0) {
+    openDoor1 = killerDoor;
+    openDoor2 = friendDoor;
+    openDoor3 = exitDoor;
+  } else if(currentDoor === 1) {
+    openDoor2 = killerDoor;
+    openDoor3 = friendDoor;
+    openDoor1 = exitDoor;
   } else {
-    openDoor3 = botDoorPath;
-    openDoor1 = beachDoorPath;
-    openDoor2 = spaceDoorPath;
+    openDoor3 = killerDoor;
+    openDoor1 = friendDoor;
+    openDoor2 = exitDoor;
   }
 }
 
 doorImage1.onclick = () => {
   if(!isClicked(doorImage1) && currentlyPlaying) {
   doorImage1.src=openDoor1;
+  doorImage1.name=openDoor1;
+  console.log(doorImage1)
   playDoor(doorImage1);
   }
 }
 doorImage2.onclick = () => {
   if(!isClicked(doorImage2) && currentlyPlaying) {
   doorImage2.src=openDoor2;
+  doorImage2.name=openDoor2;
   playDoor(doorImage2);
   }
 }
 doorImage3.onclick = () => {
   if(!isClicked(doorImage3) && currentlyPlaying) {
   doorImage3.src=openDoor3;
+  doorImage3.name=openDoor3;
   playDoor(doorImage3);
   }
 }
 
-startButton.onclick = () => {
+tryAgainButton.onclick = () => {
   if(!currentlyPlaying) {
     startRound();
   }
 }
 
 function startRound() {
-  doorImage1.src = closedDoorPath;
-  doorImage2.src = closedDoorPath;
-  doorImage3.src = closedDoorPath;
+  doorImage1.src = closedDoor;
+  doorImage2.src = closedDoor;
+  doorImage3.src = closedDoor;
+  doorImage1.name = closedDoor;
+  doorImage2.name = closedDoor;
+  doorImage3.name = closedDoor;
   numClosedDoors = 3;
-  startButton.innerHTML = "Good luck!";
+  messageButton.innerHTML = 'Good luck...'
   currentlyPlaying = true;
-  randomChoreDoorGenerator();
+  randomDoorGenerator();
 }
 function gameOver(status) {
   if(status === "win") {
-    startButton.innerHTML = "You win! Play again?"
+    messageButton.innerHTML = "You and your friend have survived this time..."
   } else {
-    startButton.innerHTML = "Game over! Play again?"
+    messageButton.innerHTML = "The killer has found you...Game over."
   }
+   tryAgainButton.innerHTML = "Try again";
+  blinkTryAgain()
   currentlyPlaying = false;
 }
 
-startRound();
+ startRound();
+
+
+function blinkTryAgain() {
+  let blink = setInterval(BlinkIt, 500);
+  let color = "red";
+
+  function BlinkIt() {
+    color = (color == "white")? "red" : "white";
+    tryAgainButton.style.color = color;
+  }
+  tryAgainButton.onclick = function() {
+    clearInterval(blink);
+    tryAgainButton.style.color = 'white';
+    startRound();
+     tryAgainButton.innerHTML = '...';
+  }
+}

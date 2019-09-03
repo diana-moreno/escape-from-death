@@ -24,7 +24,7 @@ body {
   font-size: 2.5rem;
 }
 
-.instruccions {
+.instruccions, .game-messages {
   text-align: center;
   color: white;
   letter-spacing: 0.2rem;
@@ -60,13 +60,15 @@ body {
   position: absolute;
 }
 
-#start {
-  visibility: hidden;
+#try-again {
+  cursor: pointer;
 }
+
+
 h1 {
   margin: 1rem;
 }
-h1, p {
+h1, p, #start {
   font-family: 'CF Night of Terror PERSONAL Regular';
 }
 
