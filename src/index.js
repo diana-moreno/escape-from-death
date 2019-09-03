@@ -8,8 +8,8 @@ let audioKiller = document.getElementById('audio-killer');
 
 
 let killerDoor = "./img/white-door-killer.jpg"
-let friendDoor = "./img/white-door-friend.jpg"
-let exitDoor = "./img/white-door-exit.jpg"
+let friendDoor = "./img/white-door-friend.png"
+let exitDoor = "./img/white-door-exit.png"
 let closedDoor1 = "./img/white-door-bloody-hand2.jpg"
 let closedDoor2 = "./img/white-door-bloody-hand1.jpg"
 let closedDoor3 = "./img/white-door-bloody-hand3.jpg"
