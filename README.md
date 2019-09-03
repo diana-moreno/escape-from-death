@@ -8,6 +8,9 @@ Escape to death is a horror escape game where you and your friend have been kidn
 
 ### **Features**
 
+- There are three closed doors: in one is your friend isolated, in other the killer, and in the other, the exit.
+- If you find the exit, you won't be able to leave without your friend, you must rescue him first to leave together.
+- If while trying to find the exit or your friend, you bump with the killer, the game is over.
 
 ### **Setup**
 ---
@@ -24,8 +27,13 @@ git clone https://github.com/diana-moreno/escape-to-death.git
 
 ### **What I learned**
 
+- Create layout with basic CSS.
+- Manipulate images with Gimp.
+- Implement conditional javascript logic.
+- Acces and manipulate the DOM.
+- Add sounds in events DOM without need a server.
 
 ### **Resources**
 
 - The images are from [freepik](https://www.freepik.es/).
-- The sounds are Royalty Free of public domain, from [soundbible] (http://soundbible.com/royalty-free-sounds-1.html)
+- The sounds are Royalty Free of public domain, from [soundbible](http://soundbible.com/royalty-free-sounds-1.html)
