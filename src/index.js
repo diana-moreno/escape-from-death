@@ -6,7 +6,6 @@ let tryAgainButton = document.getElementById('try-again');
 let audioDoor = document.getElementById('audio-door');
 let audioKiller = document.getElementById('audio-killer');
 
-
 let killerDoor = "./img/white-door-killer.jpg"
 let friendDoor = "./img/white-door-friend.png"
 let exitDoor = "./img/white-door-exit.png"
@@ -26,15 +25,14 @@ const playDoor = (door) => {
     messageButton.innerHTML = "This is the exit but first you must find your friend."
   } else if(isFriend(door) && numClosedDoors === 2) {
     messageButton.innerHTML = "Your friend is alive, hurry up finding the exit."
-  } else if(numClosedDoors === 1 && !isKilled(door)) {
-    console.log(isFriend(door), isExit(door))
+  } else if(numClosedDoors === 1 && !isKiller(door)) {
     gameOver("win");
-  } else if(isKilled(door)) {
+  } else if(isKiller(door)) {
     gameOver();
   }
 }
 
-function isKilled(door) {
+function isKiller(door) {
   return door.name === killerDoor ? true : false;
 }
 function isExit(door) {
@@ -65,38 +63,27 @@ const randomDoorGenerator = () => {
   }
 }
 
-doorImage1.onclick = () => {
-  if(!isClicked(doorImage1) && currentlyPlaying) {
-  audioDoor.play();
-  doorImage1.src=openDoor1;
-  doorImage1.name=openDoor1;
-  playDoor(doorImage1);
+function openTheDoor(door, openDoorX) {
+  if(!isClicked(door) && currentlyPlaying) {
+    audioDoor.play();
+    door.src=openDoorX;
+    door.name=openDoorX;
+    playDoor(door);
   }
 }
-doorImage2.onclick = () => {
-  if(!isClicked(doorImage2) && currentlyPlaying) {
-  audioDoor.play();
-  doorImage2.src=openDoor2;
-  doorImage2.name=openDoor2;
-  playDoor(doorImage2);
-  }
-}
-doorImage3.onclick = () => {
-  if(!isClicked(doorImage3) && currentlyPlaying) {
-  audioDoor.play();
-  doorImage3.src=openDoor3;
-  doorImage3.name=openDoor3;
-  playDoor(doorImage3);
-  }
-}
+
+doorImage1.onclick = () => openTheDoor(doorImage1, openDoor1)
+doorImage2.onclick = () => openTheDoor(doorImage2, openDoor2)
+doorImage3.onclick = () => openTheDoor(doorImage3, openDoor3)
+
 
 tryAgainButton.onclick = () => {
-  if(!currentlyPlaying) {
-    startRound();
-  }
+  if(!currentlyPlaying)
+    startGame();
 }
 
-function startRound() {
+// necesitamos trabajar con name porque src depende de la ruta local
+function startGame() {
   doorImage1.src = closedDoor1;
   doorImage2.src = closedDoor2;
   doorImage3.src = closedDoor3;
@@ -109,6 +96,7 @@ function startRound() {
   currentlyPlaying = true;
   randomDoorGenerator();
 }
+
 function gameOver(status) {
   if(status === "win") {
     messageButton.innerHTML = "You and your friend have survived this time..."
@@ -117,12 +105,12 @@ function gameOver(status) {
     messageButton.innerHTML = "The killer has found you...Game over."
   }
   tryAgainButton.style.visibility = 'visible';
-   tryAgainButton.innerHTML = "Try again";
-  blinkTryAgain()
+  tryAgainButton.innerHTML = "Try again";
   currentlyPlaying = false;
+  blinkTryAgain()
 }
 
- startRound();
+startGame();
 
 
 function blinkTryAgain() {
@@ -136,7 +124,7 @@ function blinkTryAgain() {
   tryAgainButton.onclick = function() {
     clearInterval(blink);
     tryAgainButton.style.color = 'white';
-    startRound();
+    startGame();
     tryAgainButton.style.visibility = 'hidden';
   }
 }
