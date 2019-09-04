@@ -43,7 +43,7 @@ function isFriend(door) {
 }
 
 function isClicked(door) {
-  return door.name === closedDoor1 || closedDoor2 || closedDoor3 ? false : true;
+  return door.name === closedDoor1 || door.name === closedDoor2 || door.name === closedDoor3 ? false : true;
 }
 
 const randomDoorGenerator = () => {
@@ -64,7 +64,9 @@ const randomDoorGenerator = () => {
 }
 
 function openTheDoor(door, openDoorX) {
+  console.log(door)
   if(!isClicked(door) && currentlyPlaying) {
+    console.log(door)
     audioDoor.play();
     door.src=openDoorX;
     door.name=openDoorX;
