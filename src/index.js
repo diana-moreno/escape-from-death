@@ -1,7 +1,7 @@
 let doorImage1 = document.getElementById("door1");
 let doorImage2 = document.getElementById("door2");
 let doorImage3 = document.getElementById("door3");
-let messageButton = document.getElementById("message");
+let message = document.getElementById("message");
 let tryAgainButton = document.getElementById('try-again');
 let audioDoor = document.getElementById('audio-door');
 let audioKiller = document.getElementById('audio-killer');
@@ -22,9 +22,9 @@ let openDoor3;
 const playDoor = (door) => {
   numClosedDoors--;
   if(numClosedDoors === 2 && isExit(door)) {
-    messageButton.innerHTML = "You can't leave your friend, find him!"
+    message.innerHTML = "You can't leave your friend, find him!"
   } else if(isFriend(door) && numClosedDoors === 2) {
-    messageButton.innerHTML = "Your friend is alive, hurry up finding the exit."
+    message.innerHTML = "Your friend is alive, hurry up finding the exit."
   } else if(numClosedDoors === 1 && !isKiller(door)) {
     gameOver("win");
   } else if(isKiller(door)) {
@@ -93,21 +93,24 @@ function startGame() {
   doorImage2.name = closedDoor2;
   doorImage3.name = closedDoor3;
   numClosedDoors = 3;
-  messageButton.innerHTML = 'Good luck...'
+  message.innerHTML = 'Good luck...'
   tryAgainButton.style.visibility = 'hidden';
+  message.style.color = 'white';
   currentlyPlaying = true;
   randomDoorGenerator();
 }
 
 function gameOver(status) {
   if(status === "win") {
-    messageButton.innerHTML = "You and your friend have survived this time..."
+    message.style.color = '#FF9800';
+    message.innerHTML = "You and your friend have survived this time..."
   } else {
     audioKiller.play();
-    messageButton.innerHTML = "The killer has found you...Game over."
+    message.style.color = 'red';
+    message.innerHTML = "The killer has found you...Game over."
   }
   tryAgainButton.style.visibility = 'visible';
-  tryAgainButton.innerHTML = "Try again";
+  tryAgainButton.innerHTML = "Play again";
   currentlyPlaying = false;
   blinkTryAgain()
 }
