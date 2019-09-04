@@ -22,7 +22,7 @@ let openDoor3;
 const playDoor = (door) => {
   numClosedDoors--;
   if(numClosedDoors === 2 && isExit(door)) {
-    messageButton.innerHTML = "This is the exit but first you must find your friend."
+    messageButton.innerHTML = "You can't leave your friend, find him!"
   } else if(isFriend(door) && numClosedDoors === 2) {
     messageButton.innerHTML = "Your friend is alive, hurry up finding the exit."
   } else if(numClosedDoors === 1 && !isKiller(door)) {
