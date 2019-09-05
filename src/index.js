@@ -106,7 +106,7 @@ function gameOver(status) {
     message.innerHTML = "You and your friend have survived this time..."
   } else {
     audioKiller.play();
-    message.style.color = '#792626';
+    message.style.color = '#ab3333';
     message.innerHTML = "The killer has found you...Game over."
   }
   tryAgainButton.style.visibility = 'visible';
@@ -120,10 +120,10 @@ startGame();
 
 function blinkTryAgain() {
   let blink = setInterval(BlinkIt, 500);
-  let color = "#792626";
+  let color = "#ab3333";
 
   function BlinkIt() {
-    color = (color == "#bdbdbd")? "#792626" : "#bdbdbd";
+    color = (color == "#bdbdbd")? "#ab3333" : "#bdbdbd";
     tryAgainButton.style.color = color;
   }
   tryAgainButton.onclick = function() {

@@ -8,6 +8,9 @@ body {
   overflow-y: hidden;
   background: #280202;
 }
+body::after {
+  background: black;
+}
 .text-content {
   height: 50%;
   display: flex;
