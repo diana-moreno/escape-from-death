@@ -1,0 +1,138 @@
+html {
+  height: 100%;
+}
+body {
+  margin: 0px;
+  background-size: cover;
+  height: 100%;
+  overflow-y: hidden;
+  background: #280202;
+}
+.text-content {
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  justify-content: center;
+  font-family: Frank-knows;
+  font-weight: bold;
+  text-shadow: -4px 10px 3px #000;
+}
+.title {
+  text-align: center;
+  color: #792626;
+  letter-spacing: 0.5rem;
+  font-size: 2.5rem;
+  padding-top: 12rem;
+  height: 40%;
+}
+.instruccions, .game-messages {
+  text-align: center;
+  color: #bdbdbd;
+  padding: 0 1rem;
+  letter-spacing: 0.2rem;
+  font-size: 2.7rem;
+  height: 60%;
+  font-style: italic;
+}
+.door-row {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  height: 35%;
+  position: relative;
+  align-items: flex-end;
+}
+.door-frame {
+  cursor: pointer;
+  padding-bottom: 0;
+  height: 90%;
+  width: auto;
+  margin: 0 2%;
+}
+#door1 {
+  box-shadow: 17px 31px 19px 0px rgba(0,0,0,0.75);
+}
+#door2 {
+  box-shadow: -9px 19px 19px 0px rgba(0,0,0,0.75);
+}
+#door3 {
+  box-shadow: -16px 20px 19px 0px rgba(0,0,0,0.75);
+}
+.wall {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+.floor {
+  height: 15%;
+  position: relative;
+}
+.floor img {
+  width: 100%;
+  margin: 0;
+  height: fit-content;
+}
+#try-again {
+  cursor: pointer;
+}
+#atribution {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  color: #bdbdbd;
+}
+.audios {
+  display: none;
+}
+@font-face {
+  font-family: 'Frank-Knows';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Frank-Knows'), url('Frank-Knows.woff') format('woff');
+}
+
+
+
+/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
+@media screen and (min-device-width:321px) {}
+
+/* smartphones, Android phones, landscape iPhone */
+@media screen and (min-device-width:480px) {}
+
+/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
+@media screen and (min-width:600px) {
+  .title {
+    font-size: 2rem;
+  }
+  .instruccions, .game-messages {
+    font-size: 2.2rem;
+  }
+}
+
+/* tablet, landscape iPad, lo-res laptops ands desktops */
+@media screen and (min-device-width:801px) {
+  .door-frame {
+    margin: 0 5%;
+  }
+  .title {
+    font-size: 1.5rem;
+  }
+  .instruccions, .game-messages {
+    font-size: 2rem;
+  }
+}
+
+/* big landscape tablets, laptops, and desktops */
+@media (min-width:1025px) {
+    .title {
+    font-size: 1.5rem;
+    padding-top: 6.5rem
+  }
+  .instruccions, .game-messages {
+    font-size: 1.5rem;
+  }
+}
+
+/* hi-res laptops and desktops */
+@media screen and (min-width:1281px) {}
