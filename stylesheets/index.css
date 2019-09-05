@@ -15,12 +15,11 @@ body {
   position: relative;
   justify-content: center;
   font-family: Frank-knows;
-  font-weight: bold;
-  text-shadow: -4px 10px 3px #000;
+  text-shadow: -4px 8px 4px #000;
 }
 .title {
   text-align: center;
-  color: #792626;
+  color: #ab3333;
   letter-spacing: 0.5rem;
   font-size: 2.5rem;
   padding-top: 12rem;
