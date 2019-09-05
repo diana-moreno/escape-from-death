@@ -37,3 +37,4 @@ git clone https://github.com/diana-moreno/escape-from-death.git
 
 - The images are from [freepik](https://www.freepik.es/).
 - The sounds are Royalty Free of public domain, from [soundbible](http://soundbible.com/royalty-free-sounds-1.html)
+- The font is free for por personal use, from [datafont](datafont.co)
