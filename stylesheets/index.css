@@ -8,9 +8,6 @@ body {
   overflow-y: hidden;
   background: #280202;
 }
-body::after {
-  background: black;
-}
 .text-content {
   height: 50%;
   display: flex;
@@ -22,15 +19,15 @@ body::after {
 }
 .title {
   text-align: center;
-  color: #ab3333;
+  color: #ececec;
   letter-spacing: 0.5rem;
   font-size: 2.5rem;
-  padding-top: 12rem;
+  padding-top: 9rem;
   height: 40%;
 }
 .instruccions, .game-messages {
   text-align: center;
-  color: #bdbdbd;
+  color: #ececec;
   padding: 0 1rem;
   letter-spacing: 0.2rem;
   font-size: 2.7rem;
@@ -82,7 +79,7 @@ body::after {
   position: absolute;
   bottom: 1rem;
   right: 1rem;
-  color: #bdbdbd;
+  color: #ececec;
 }
 .audios {
   display: none;

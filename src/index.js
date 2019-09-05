@@ -95,7 +95,7 @@ function startGame() {
   numClosedDoors = 3;
   message.innerHTML = 'Good luck...'
   tryAgainButton.style.visibility = 'hidden';
-  message.style.color = '#bdbdbd';
+  message.style.color = '#ececec';
   currentlyPlaying = true;
   randomDoorGenerator();
 }
@@ -106,7 +106,7 @@ function gameOver(status) {
     message.innerHTML = "You and your friend have survived this time..."
   } else {
     audioKiller.play();
-    message.style.color = '#ab3333';
+    message.style.color = 'red';
     message.innerHTML = "The killer has found you...Game over."
   }
   tryAgainButton.style.visibility = 'visible';
@@ -120,15 +120,15 @@ startGame();
 
 function blinkTryAgain() {
   let blink = setInterval(BlinkIt, 500);
-  let color = "#ab3333";
+  let color = "red";
 
   function BlinkIt() {
-    color = (color == "#bdbdbd")? "#ab3333" : "#bdbdbd";
+    color = (color == "#ececec")? "red" : "#ececec";
     tryAgainButton.style.color = color;
   }
   tryAgainButton.onclick = function() {
     clearInterval(blink);
-    tryAgainButton.style.color = '#bdbdbd';
+    tryAgainButton.style.color = '#ececec';
     startGame();
     tryAgainButton.style.visibility = 'hidden';
   }
